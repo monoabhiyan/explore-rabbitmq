@@ -16,9 +16,9 @@ const sendMessage = async () => {
     channel.consume(
       queueName,
       (message) => {
-        const secs = message.content.toString().split(".").length - 1;
+        const secs = message.content.toString().substring(4);
 
-        console.log(`Received payload ${message.content.toString()}`);
+        console.log(`${secs} secs worth of task received...`);
 
         setTimeout(() => {
           console.log("Done resizing image");
@@ -33,3 +33,4 @@ const sendMessage = async () => {
 };
 
 sendMessage();
+// node send.js time5 && node send.js time1 && node send.js time1 && node send.js time1 && node send.js time1 && node send.js time1 && node send.js time3

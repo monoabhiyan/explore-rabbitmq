@@ -11,7 +11,7 @@ const sendMessage = async () => {
 
     channel.sendToQueue(queueName, Buffer.from(payload), { persistent: true });
 
-    console.log(`Sent payload: ${payload}`);
+    console.log(`Sent payload: ${payload} worth of task...`);
     setTimeout(() => {
       connection.close();
       process.exit(0);
